@@ -1,11 +1,31 @@
 package com.example.fairShare.fairshareBackend.model;
 
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     private String userId;
     private String username;
     private String pass;
     private String name;
+    private String phoneNumber;
+    private Boolean isAdmin;
+
+    public User(String userId, String username, String pass, String name, String phoneNumber, Boolean isAdmin) {
+        this.userId = userId;
+        this.username = username;
+        this.pass = pass;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.isAdmin = isAdmin;
+    }
 
     public String getUserId() {
         return userId;
@@ -54,7 +74,4 @@ public class User {
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
     }
-
-    private String phoneNumber;
-    Boolean isAdmin;
 }
