@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FairshareBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FairshareBackendApplication.class, args);
+        SpringApplication.run(FairshareBackendApplication.class, args);
 	}
-
 }
