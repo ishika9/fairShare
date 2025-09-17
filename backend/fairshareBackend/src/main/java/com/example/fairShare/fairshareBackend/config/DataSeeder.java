@@ -4,8 +4,12 @@ import com.example.fairShare.fairshareBackend.model.Users;
 import com.example.fairShare.fairshareBackend.repo.ExpenseRepository;
 import com.example.fairShare.fairshareBackend.repo.GroupRepository;
 import com.example.fairShare.fairshareBackend.repo.UserRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
-public class DataSeeder {
+@Component
+public class DataSeeder implements CommandLineRunner {
+
     private final UserRepository userRepo;
     private final GroupRepository groupRepo;
     private final ExpenseRepository expenseRepo;

@@ -21,14 +21,6 @@ public class Users {
     private String phoneNumber;
     private Boolean isAdmin;
 
-    // public User(String userId, String username, String pass, String name, String phoneNumber, Boolean isAdmin) {
-    //     this.userId = userId;
-    //     this.username = username;
-    //     this.pass = pass;
-    //     this.name = name;
-    //     this.phoneNumber = phoneNumber;
-    //     this.isAdmin = isAdmin;
-    // }
 
     public String getUserId() {
         return userId;
