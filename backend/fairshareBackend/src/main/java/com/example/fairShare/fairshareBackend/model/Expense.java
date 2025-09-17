@@ -1,8 +1,19 @@
 package com.example.fairShare.fairshareBackend.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityResult;
+import jdk.jfr.DataAmount;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 import java.util.Map;
 
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Expense {
 
     private String expenseId;
