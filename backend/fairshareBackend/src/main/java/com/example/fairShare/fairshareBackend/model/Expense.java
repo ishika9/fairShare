@@ -2,12 +2,14 @@ package com.example.fairShare.fairshareBackend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityResult;
+import jakarta.persistence.Id;
 import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -16,12 +18,19 @@ import java.util.Map;
 @AllArgsConstructor
 public class Expense {
 
+    @Id
     private String expenseId;
     private String groupId;
+
+    public List<String> getShare() { return share;}
+
+    public void setShare(List<String> share) { this.share = share; }
+
     private String title;
     private String paidBy;
     private Double amount;
-    private Map<String, Float> sharedBy;
+    private List<String> sharedBy;
+    private List<String> share;
 
     public String getExpenseId() {
         return expenseId;
@@ -63,13 +72,11 @@ public class Expense {
         this.amount = amount;
     }
 
-    public Map<String, Float> getSharedBy() {
+    public List<String> getSharedBy() {
         return sharedBy;
     }
 
-    public void setSharedBy(Map<String, Float> sharedBy) {
-        this.sharedBy = sharedBy;
-    }
+    public void setSharedBy(List<String> sharedBy) { this.sharedBy = sharedBy;}
 
     public Date getCreationDate() {
         return creationDate;
