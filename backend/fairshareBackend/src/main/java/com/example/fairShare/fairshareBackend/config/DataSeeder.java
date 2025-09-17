@@ -4,8 +4,12 @@ import com.example.fairShare.fairshareBackend.model.User;
 import com.example.fairShare.fairshareBackend.repo.ExpenseRepository;
 import com.example.fairShare.fairshareBackend.repo.GroupRepository;
 import com.example.fairShare.fairshareBackend.repo.UserRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
-public class DataSeeder {
+@Component
+public class DataSeeder implements CommandLineRunner {
+
     private final UserRepository userRepo;
     private final GroupRepository groupRepo;
     private final ExpenseRepository expenseRepo;
@@ -16,9 +20,11 @@ public class DataSeeder {
         this.expenseRepo = expenseRepo;
     }
 
-    public void run(String... args){
-        if(userRepo.count() == 0){
-            User u1 = new User("U00000", "bob", "builder", "bob", "7182313123", true);
+    @Override
+    public void run(String... args) {
+        if (userRepo.count() == 0) {
+            User u1 = new User(null, "bob", "builder", "bob", "7182313123", true);
+            userRepo.save(u1);
         }
     }
 }
