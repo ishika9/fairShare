@@ -21,16 +21,22 @@ public class Expense {
     @Id
     private String expenseId;
     private String groupId;
-
-    public List<String> getShare() { return share;}
-
-    public void setShare(List<String> share) { this.share = share; }
-
     private String title;
     private String paidBy;
     private Double amount;
     private List<String> sharedBy;
     private List<String> share;
+    private Date creationDate;
+    private enum SplitType{
+        equal,
+        percentage,
+        customShare
+    };
+    private SplitType splitType;
+
+    public List<String> getShare() { return share;}
+
+    public void setShare(List<String> share) { this.share = share; }
 
     public String getExpenseId() {
         return expenseId;
@@ -85,11 +91,4 @@ public class Expense {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
-
-    private Date creationDate;
-    private enum splitType{
-        equal,
-        percentage,
-        customShare
-    };
 }

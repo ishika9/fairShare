@@ -2,6 +2,7 @@ package com.example.fairShare.fairshareBackend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,12 +14,15 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "app_groups")
 public class Groups {
 
     @Id
     private String groupId;
     private String adminId;
     private String groupName;
+    private List<String> membersId;
+    private Date creationDate;
 
     public String getGroupId() {
         return groupId;
@@ -44,12 +48,12 @@ public class Groups {
         this.groupName = groupName;
     }
 
-    public List<String> getMemberId() {
-        return memberId;
+    public List<String> getMembersId() {
+        return membersId;
     }
 
-    public void setMemberId(List<String> memberId) {
-        this.memberId = memberId;
+    public void setMembersId(List<String> memberId) {
+        this.membersId = memberId;
     }
 
     public Date getCreationDate() {
@@ -59,8 +63,4 @@ public class Groups {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
-
-    private List<String> memberId;
-    private Date creationDate;
-
 }

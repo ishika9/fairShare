@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Users {
 
     @Id
@@ -20,7 +19,6 @@ public class Users {
     private String name;
     private String phoneNumber;
     private Boolean isAdmin;
-
 
     public String getUserId() {
         return userId;
