@@ -22,7 +22,7 @@ public class DataSeeder implements CommandLineRunner {
 
     public void run(String... args){
         if(userRepo.count() == 0){
-            Users u1 = new Users("U00000", "bob", "builder", "bob", "7182313123", true);
+            Users u1 = new Users(null, "bob", "builder", "bob", "7182313123", true);
             userRepo.save(u1);
         }
     }
