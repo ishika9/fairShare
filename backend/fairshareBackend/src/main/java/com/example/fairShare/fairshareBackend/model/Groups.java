@@ -1,14 +1,13 @@
 package com.example.fairShare.fairshareBackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -18,17 +17,18 @@ import java.util.List;
 public class Groups {
 
     @Id
-    private String groupId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID groupId;
     private String adminId;
     private String groupName;
     private List<String> membersId;
     private Date creationDate;
 
-    public String getGroupId() {
+    public UUID getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(String groupId) {
+    public void setGroupId(UUID groupId) {
         this.groupId = groupId;
     }
 

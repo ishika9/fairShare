@@ -1,10 +1,14 @@
 package com.example.fairShare.fairshareBackend.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.UUID;
 
 @Entity
 @Data
@@ -13,18 +17,19 @@ import lombok.NoArgsConstructor;
 public class Users {
 
     @Id
-    private String userId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID userId;
     private String username;
     private String pass;
     private String name;
     private String phoneNumber;
     private Boolean isAdmin;
 
-    public String getUserId() {
+    public UUID getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(UUID userId) {
         this.userId = userId;
     }
 

@@ -1,8 +1,6 @@
 package com.example.fairShare.fairshareBackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityResult;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -19,7 +18,8 @@ import java.util.Map;
 public class Expense {
 
     @Id
-    private String expenseId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID expenseId;
     private String groupId;
     private String title;
     private String paidBy;
@@ -38,11 +38,11 @@ public class Expense {
 
     public void setShare(List<String> share) { this.share = share; }
 
-    public String getExpenseId() {
+    public UUID getExpenseId() {
         return expenseId;
     }
 
-    public void setExpenseId(String expenseId) {
+    public void setExpenseId(UUID expenseId) {
         this.expenseId = expenseId;
     }
 
